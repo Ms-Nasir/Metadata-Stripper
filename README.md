@@ -1,58 +1,114 @@
-**Advanced Metadata Anonymizer**
+# Metadata Stripper
 
-:pushpin:**Overview**
+A Python-based **metadata privacy and anonymization tool** designed to identify, remove, and modify metadata from files to help reduce unintended exposure of sensitive information.
 
-The Advanced Metadata Anonymizer is a Python-based tool designed to remove and modify metadata from various file types, ensuring complete digital privacy. Unlike traditional metadata strippers, this tool not only deletes metadata but also alters timestamps, changes file structures, randomizes attributes, and modifies file formats to prevent forensic tracking.
+The tool provides both a **graphical interface and command-line functionality** and supports multiple file formats.
 
-This tool is perfect for privacy-conscious users, journalists, cybersecurity professionals, and organizations looking to protect sensitive information and maintain anonymity.
+---
 
-:pushpin:**Features**
+## 🔎 Overview
 
-✅ Removes metadata from images, videos, audio files, PDFs, and documents
-✅ Randomizes timestamps to prevent forensic tracing
-✅ Alters file structure for enhanced anonymity
-✅ Changes file format to disrupt signature-based identification
-✅ Modifies image resolution & attributes
-✅ User-friendly GUI using Tkinter
-✅ No dependency on external tools like FFmpeg or ExifTool
-✅ Cross-platform compatibility (Windows, macOS, Linux)
+Files can contain metadata that may reveal information about their creation, modification, origin, or associated properties.
 
-:pushpin:**Supported File Types**
+Metadata Stripper provides a practical way to inspect and modify file metadata for privacy and security purposes.
 
-Images: JPG, JPEG, PNG, WebP, BMP, TIFF
+The project is designed for:
 
-Videos: MP4, MOV, AVI, MKV, WMV, FLV
+- Privacy-conscious users
+- Cybersecurity professionals
+- Digital forensics learners
+- Security researchers
+- Users handling sensitive files
 
-Audio: MP3, FLAC, OGG, Opus, AAC, WAV
+---
 
-Documents: DOC, DOCX, PDF
+## 🚀 Key Features
 
-:pushpin:**Installation**
+### 🧹 Metadata Removal
 
-Ensure you have Python 3.7+ installed. Then, install the required dependencies:
+Removes available metadata from supported files to reduce unnecessary information exposure.
 
-*pip install pillow piexif pymupdf mutagen python-docx numpy tk*
+### 🕒 Timestamp Randomization
 
-Alternatively, install dependencies using the requirements file:
+Provides timestamp modification functionality to reduce exposure of original file timestamps.
 
-*pip install -r requirements.txt*
+### 🔐 Metadata Anonymization
 
-:pushpin:**Usage**
+Modifies available metadata fields to help protect potentially sensitive information.
 
-Run the script to open a simple GUI for selecting files:
+### 📁 Multiple File Formats
 
-python metadata_anonymizer.py
+Supports metadata processing across different categories of files.
 
-:pushpin:**Manual Usage (Command Line)**
+### 🖥️ Graphical Interface
 
-You can also modify and remove metadata from specific files using:
+Includes a user-friendly GUI built with **Tkinter** for selecting and processing files.
 
-from metadata_anonymizer import remove_metadata
-remove_metadata("path/to/your/file")
+### 💻 Command-Line Usage
 
-:pushpin:**Contact**
+Provides command-line functionality for users who prefer terminal-based workflows.
 
-For any issues, improvements, or contributions, feel free to reach out:
+### 🌐 Cross-Platform Design
 
-Github: https://github.com/Muntahaa19
-🔗 LinkedIn: https://www.linkedin.com/in/muntaha-nasir-631307239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
+Designed to work across common operating systems including:
+
+- Windows
+- Linux
+- macOS
+
+---
+
+## 📂 Supported File Types
+
+### Images
+
+- JPG / JPEG
+- PNG
+- WebP
+- BMP
+- TIF / TIFF
+
+### Videos
+
+- MP4
+- MOV
+- AVI
+- MKV
+- WMV
+- FLV
+
+### Audio
+
+- MP3
+- FLAC
+- OGG
+- OPUS
+- AAC
+- WAV
+
+### Documents
+
+- DOC
+- DOCX
+- PDF
+
+> Metadata support can vary depending on the file format and available metadata fields.
+
+---
+
+## 🛠️ Technologies
+
+- **Python**
+- **Tkinter**
+- Metadata processing libraries
+- File handling and processing
+- Command-line interface
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Ms-Nasir/Metadata-Stripper.git
