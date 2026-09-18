@@ -168,3 +168,4 @@ root.geometry("350x250")
 btn_select = tk.Button(root, text="Select File", command=remove_metadata, padx=10, pady=5)
 btn_select.pack(pady=20)
 root.mainloop()
+
