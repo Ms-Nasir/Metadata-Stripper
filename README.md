@@ -127,6 +127,9 @@ pip install -r requirements.txt
 
 Otherwise, install the required dependencies described in the project documentation.
 
+---
+
+
 ### ▶️ Usage
 
 Graphical Interface
@@ -140,6 +143,9 @@ The GUI can then be used to select files and perform the available metadata proc
 **Command Line
 **
 The tool can also be used from the command line according to the supported command structure.
+
+---
+
 
 ### 🔐 Cybersecurity & Privacy Applications
 
@@ -155,6 +161,8 @@ Metadata Stripper demonstrates practical concepts related to:
 
 Metadata can sometimes provide useful contextual information during security investigations. Understanding how metadata is created, analyzed, modified, and removed is therefore relevant to both privacy protection and digital forensics.
 
+---
+
 
 ### 🎯 Project Objectives
 
@@ -166,6 +174,8 @@ The main objectives of this project are to:
 - Explore privacy-preserving techniques for digital files.
 - Strengthen practical Python and cybersecurity skills.
 
+---
+
 ### 🔮 Potential Enhancements
 
 Possible future improvements include:
@@ -175,6 +185,8 @@ Possible future improvements include:
 - Batch processing improvements
 - Enhanced reporting of removed or modified metadata
 - Additional privacy-focused file sanitization capabilities
+
+---
 
 ### 👩‍💻 Author
 
