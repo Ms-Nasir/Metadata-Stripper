@@ -1,0 +1,6 @@
+Pillow
+piexif
+PyMuPDF
+mutagen
+python-docx
+numpy
