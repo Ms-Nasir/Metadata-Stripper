@@ -125,8 +125,8 @@ The application recognizes:
 ``` 
 ---
 
-**Main Files
-**
+**Main Files**
+
 metadata.py
 
 The main Python application containing:
@@ -137,16 +137,17 @@ The main Python application containing:
 - Filename randomization
 - Tkinter graphical interface
 
-**Tools.md
-**
+**Tools.md**
+
 Additional documentation related to the tools and functionality used by the project.
 
-**README.md
-**
+**README.md**
 
 Project documentation, installation instructions, features, and usage information.
 
-⚙️ Installation
+---
+
+### ⚙️ Installation
 1. Clone the Repository
    
 git clone https://github.com/Ms-Nasir/Metadata-Stripper.git
