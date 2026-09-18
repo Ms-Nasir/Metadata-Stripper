@@ -1,60 +1,36 @@
 # Metadata Stripper
 
-A Python-based **metadata privacy and anonymization tool** designed to identify, remove, and modify metadata from files to help reduce unintended exposure of sensitive information.
+A Python-based **metadata anonymization and file privacy tool** that processes supported digital files to remove or modify available metadata, randomize timestamps, and generate anonymized filenames.
 
-The tool provides both a **graphical interface and command-line functionality** and supports multiple file formats.
+The application provides a simple **Tkinter graphical interface** for selecting and processing files.
 
 ---
 
 ## 🔎 Overview
 
-Files can contain metadata that may reveal information about their creation, modification, origin, or associated properties.
+Digital files can contain metadata that may reveal information about the file, its author, creation history, or other properties.
 
-Metadata Stripper provides a practical way to inspect and modify file metadata for privacy and security purposes.
+Metadata Stripper was developed as a cybersecurity and privacy-focused utility to explore how metadata can be identified, removed, modified, and anonymized across different file formats.
 
-The project is designed for:
+The project demonstrates practical experience with:
 
-- Privacy-conscious users
-- Cybersecurity professionals
-- Digital forensics learners
-- Security researchers
-- Users handling sensitive files
+- File metadata handling
+- Data sanitization
+- Privacy protection
+- Python automation
+- GUI application development
+- Digital forensics concepts
 
 ---
 
 ## 🚀 Key Features
 
-### 🧹 Metadata Removal
-
-Removes available metadata from supported files to reduce unnecessary information exposure.
-
-### 🕒 Timestamp Randomization
-
-Provides timestamp modification functionality to reduce exposure of original file timestamps.
-
-### 🔐 Metadata Anonymization
-
-Modifies available metadata fields to help protect potentially sensitive information.
-
-### 📁 Multiple File Formats
-
-Supports metadata processing across different categories of files.
-
-### 🖥️ Graphical Interface
-
-Includes a user-friendly GUI built with **Tkinter** for selecting and processing files.
-
-### 💻 Command-Line Usage
-
-Provides command-line functionality for users who prefer terminal-based workflows.
-
-### 🌐 Cross-Platform Design
-
-Designed to work across common operating systems including:
-
-- Windows
-- Linux
-- macOS
+- 🧹 **Metadata Processing** — Removes or modifies available metadata in supported file types.
+- 🕒 **Timestamp Randomization** — Changes filesystem timestamps on processed output files.
+- 🔐 **Metadata Anonymization** — Replaces selected metadata fields with generated random values where supported.
+- 🔤 **Filename Randomization** — Generates an anonymized output filename.
+- 🖥️ **Graphical Interface** — Provides a simple Tkinter-based interface for selecting files.
+- 📁 **Multi-Format Processing** — Supports image, PDF, audio, and Word document processing.
 
 ---
 
@@ -66,9 +42,37 @@ Designed to work across common operating systems including:
 - PNG
 - WebP
 - BMP
-- TIF / TIFF
+- TIFF
 
-### Videos
+Image processing includes removal of EXIF metadata and conversion to a selected image format.
+
+### PDF
+
+- PDF
+
+PDF processing modifies document metadata and cleans page contents.
+
+### Audio
+
+The current implementation includes processing support for:
+
+- MP3
+- FLAC
+- OGG
+- Opus
+- AAC
+
+> WAV is currently recognized by the file-type detection function but does not yet have a dedicated processing implementation.
+
+### Word Documents
+
+- DOCX
+
+> The current implementation uses `python-docx`, so DOCX is the supported Microsoft Word format.
+
+### Video
+
+The application recognizes:
 
 - MP4
 - MOV
@@ -77,116 +81,164 @@ Designed to work across common operating systems including:
 - WMV
 - FLV
 
-### Audio
-
-- MP3
-- FLAC
-- OGG
-- OPUS
-- AAC
-- WAV
-
-### Documents
-
-- DOC
-- DOCX
-- PDF
-
-> Metadata support can vary depending on the file format and available metadata fields.
+> Video files are currently copied and their filesystem timestamps are randomized. Full embedded video metadata removal is not currently implemented.
 
 ---
 
-## 🛠️ Technologies
+## 🛠️ Technologies Used
 
 - **Python**
-- **Tkinter**
-- Metadata processing libraries
-- File handling and processing
-- Command-line interface
+- **Tkinter** — Graphical user interface
+- **Pillow** — Image processing
+- **Piexif** — EXIF metadata handling
+- **PyMuPDF (fitz)** — PDF processing
+- **Mutagen** — Audio metadata handling
+- **python-docx** — DOCX document processing
+- **NumPy** — Imported in the project for numerical processing
 
 ---
 
-## ⚙️ Installation
+## 🔄 Processing Workflow
 
-### 1. Clone the repository
+```text
+                 Select File
+                     │
+                     ▼
+               Detect File Type
+                     │
+          ┌──────────┼──────────┐
+          ▼          ▼          ▼
+       Image       PDF       Audio/DOCX
+          │          │          │
+          └──────────┼──────────┘
+                     ▼
+             Metadata Processing
+                     │
+                     ▼
+           Timestamp Randomization
+                     │
+                     ▼
+            Filename Randomization
+                     │
+                     ▼
+             Anonymized Output
+``` 
+---
 
-bash
-git clone https://github.com/Ms-Nasir/Metadata-Stripper.git 
+**Main Files
+**
+metadata.py
 
-### 2. Navigate to the project
+The main Python application containing:
+
+- File type detection
+- Metadata processing functions
+- Timestamp randomization
+- Filename randomization
+- Tkinter graphical interface
+
+**Tools.md
+**
+Additional documentation related to the tools and functionality used by the project.
+
+**README.md
+**
+
+Project documentation, installation instructions, features, and usage information.
+
+⚙️ Installation
+1. Clone the Repository
+   
+git clone https://github.com/Ms-Nasir/Metadata-Stripper.git
+
+2. Navigate to the Project Directory
 
 cd Metadata-Stripper
 
-### 3. Install dependencies
+3. Install Required Dependencies
 
-Install the required Python packages according to the project's dependency configuration.
+pip install pillow piexif pymupdf mutagen python-docx numpy
 
-If a requirements.txt file is provided:
-
-pip install -r requirements.txt
-
-Otherwise, install the required dependencies described in the project documentation.
+Tkinter is included with most standard Python installations. On some Linux distributions, it may need to be installed separately.
 
 ---
-
 
 ### ▶️ Usage
 
-Graphical Interface
+Basic Workflow
 
-Run the Python application:
+1. Launch the application.
+2. Click Select File.
+3. Choose a supported file.
+4. Select the output location.
+5. The application processes the file.
+6. Metadata processing and timestamp randomization are performed according to the file type.
+7. The output file receives an anonymized filename.
 
-python metadata.py
-
-The GUI can then be used to select files and perform the available metadata processing operations.
-
-**Command Line
-**
-The tool can also be used from the command line according to the supported command structure.
-
----
-
+--- 
 
 ### 🔐 Cybersecurity & Privacy Applications
 
-Metadata Stripper demonstrates practical concepts related to:
+Metadata Stripper demonstrates practical concepts relevant to:
 
-- Information privacy
+- Privacy protection
 - Data sanitization
-- Digital security
+- Secure file handling
 - Metadata analysis
-- Privacy-preserving file handling
-- Digital forensics awareness
-- Secure document handling
+- Digital forensics
+- Information exposure
+- Cybersecurity tool development
 
-Metadata can sometimes provide useful contextual information during security investigations. Understanding how metadata is created, analyzed, modified, and removed is therefore relevant to both privacy protection and digital forensics.
+Metadata can contain contextual information that may be relevant during security and forensic investigations. Understanding how metadata is created, modified, and removed is therefore useful for both privacy protection and digital forensics.
 
 ---
-
 
 ### 🎯 Project Objectives
 
 The main objectives of this project are to:
 
-- Understand file metadata and its privacy implications.
-- Develop a practical metadata processing utility.
-- Provide a simple interface for file metadata handling.
-- Explore privacy-preserving techniques for digital files.
+- Explore metadata and its privacy implications.
+- Develop a Python-based metadata processing utility.
+- Automate metadata modification for supported file formats.
+- Implement timestamp and filename anonymization.
+- Provide a simple graphical interface for users.
 - Strengthen practical Python and cybersecurity skills.
 
 ---
 
 ### 🔮 Potential Enhancements
 
-Possible future improvements include:
+Future improvements may include:
 
-- Expanded metadata support for additional file formats
-- More detailed metadata inspection before modification
-- Batch processing improvements
-- Enhanced reporting of removed or modified metadata
-- Additional privacy-focused file sanitization capabilities
+- Full embedded metadata removal for supported video formats.
+- WAV metadata processing.
+- Additional document formats.
+- Batch file processing.
+- Before-and-after metadata comparison.
+- Detailed metadata removal reports.
+- Improved error handling and user feedback.
+- Expanded metadata inspection capabilities.
 
 ---
+
+### 📚 Learning Outcomes
+
+This project provided practical experience with:
+
+- Python application development
+-File processing
+- Metadata manipulation
+- EXIF handling
+- PDF metadata processing
+- Audio metadata processing
+- DOCX document processing
+- Timestamp manipulation
+- GUI development using Tkinter
+- Privacy and data-sanitization concepts
+- Digital forensics fundamentals
+
+---
+
 
 ### 👩‍💻 Author
 
